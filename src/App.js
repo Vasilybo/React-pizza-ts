@@ -4,6 +4,8 @@ import Categories from './components/Categories'
 import SortBy from './components/SortBy'
 import PizzaBlock from "./components/PizzaBlock";
 
+import pizzas from './assets/pizzas.json'
+
 function App() {
   return (
       <div className="wrapper">
@@ -16,8 +18,15 @@ function App() {
                   </div>
                   <h2 className="content__title">Все пиццы</h2>
                   <div className="content__items">
-                      <PizzaBlock title={'Чизбургер-пицца'} price={700}/>
-                      <PizzaBlock title={'Мексиканская-пицца'} price={500}/>
+                      {pizzas.map((obj) => (
+                          <PizzaBlock
+                              name={obj.name}
+                              price={obj.price}
+                              imageUrl={obj.imageUrl}
+                              sizes={obj.sizes}
+                              types={obj.types}
+                          />
+                      ))}
                   </div>
               </div>
           </div>
