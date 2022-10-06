@@ -9,19 +9,25 @@ const Home = () => {
     const [pizzas, setPizzas] = useState([])
     const [isLoading, setIsLoading] = useState(true)
 
+    const [activeCategory, setActiveCategory] = useState(0)
+    const [selectedSort, setSelectedSort] = useState(0)
+
     useEffect(() => {
-        fetch('https://632c28bf5568d3cad87e6524.mockapi.io/pizzas').then(response => {
+        setIsLoading(true)
+        fetch('https://632c28bf5568d3cad87e6524.mockapi.io/pizzas?category=' + activeCategory).then(response => {
             return response.json()
         }).then(json => {
             setPizzas(json)
             setIsLoading(false)
         })
         window.scrollTo(0, 0)
-    }, [])
+    }, [activeCategory])
     return (
         <div className="container">
         <div className="content__top">
-            <Categories/>
+            <Categories
+                value={activeCategory}
+                onClickCategory={(index) => setActiveCategory(index)} />
             <SortBy/>
         </div>
     <h2 className="content__title">Все пиццы</h2>
