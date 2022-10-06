@@ -1,13 +1,15 @@
 import React, {useState} from 'react';
 
-function SortBy() {
+function SortBy({ value, onClickSortBy }) {
 
     const [isVisible, setIsVisible] = useState(false)
-    const [selected, setSelected] = useState(0)
-    const list = ['популярности', 'цене', 'алфавиту',]
+    const list = [
+        {name: 'популярности', sort: 'rating'},
+        {name: 'цене', sort: 'price'},
+        {name: 'алфавиту', sort: 'title'},]
 
     const onClickSortName = (index) => {
-        setSelected(index)
+        onClickSortBy(index)
         setIsVisible(false)
     }
 
@@ -30,18 +32,18 @@ function SortBy() {
                 <span
                     onClick={() => setIsVisible(!isVisible)}
                 >
-                    {list[selected]}
+                    {value.name}
                 </span>
             </div>
             { isVisible && <div className="sort__popup">
                 <ul>
                     {
-                        list.map((sort, index) => (
+                        list.map((obj, index) => (
                             <li
-                                key={sort + index}
-                                className={selected === index ? 'active' : ''}
-                                onClick={() => onClickSortName(index)}
-                            >{sort}
+                                key={obj + index}
+                                className={value.sort === obj.sort ? 'active' : ''}
+                                onClick={() => onClickSortName(obj)}
+                            >{obj.name}
                             </li>
                         ))
                     }
