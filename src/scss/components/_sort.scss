@@ -1,6 +1,7 @@
 @import '../variables';
 
 .sort {
+  width: 260px;
   position: relative;
   &__label {
     display: flex;
@@ -30,7 +31,6 @@
     border-radius: 10px;
     overflow: hidden;
     padding: 10px 0;
-    width: 160px;
 
     ul {
       overflow: hidden;
