@@ -13,12 +13,13 @@ const Home = ({ searchValue }) => {
     const [selectedSort, setSelectedSort] = useState({
         name: 'популярности', sort: 'rating'
     })
+    const search = searchValue ? `&search=${searchValue}` : ''
 
     useEffect(() => {
         setIsLoading(true)
         fetch(`https://632c28bf5568d3cad87e6524.mockapi.io/pizzas?${activeCategory > 0
             ? `category=${activeCategory}`
-            : ''}&sortBy=${selectedSort.sort}&order=asc`)
+            : ''}&sortBy=${selectedSort.sort}&order=asc${search}`)
             .then(response => {return response.json()})
             .then(json => {
             setPizzas(json)
@@ -28,8 +29,8 @@ const Home = ({ searchValue }) => {
     }, [activeCategory, selectedSort, searchValue])
 
      const items = pizzas
-         .filter(obj => {
-         return !!obj.name.toLowerCase().includes(searchValue.toLowerCase());})
+         // .filter(obj => {
+         // return !!obj.name.toLowerCase().includes(searchValue.toLowerCase());})
          .map((obj) => (
         <PizzaBlock
             key={obj + obj.name}
