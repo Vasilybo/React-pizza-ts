@@ -11,6 +11,7 @@ const Home = ({ searchValue }) => {
     const [isLoading, setIsLoading] = useState(true)
 
     const [activeCategory, setActiveCategory] = useState(0)
+    const [currentPage, setCurrentPage] = useState(1)
     const [selectedSort, setSelectedSort] = useState({
         name: 'популярности', sort: 'rating'
     })
@@ -18,7 +19,7 @@ const Home = ({ searchValue }) => {
 
     useEffect(() => {
         setIsLoading(true)
-        fetch(`https://632c28bf5568d3cad87e6524.mockapi.io/pizzas?page=1&limit=4&${activeCategory > 0
+        fetch(`https://632c28bf5568d3cad87e6524.mockapi.io/pizzas?page=${currentPage}&limit=4&${activeCategory > 0
             ? `category=${activeCategory}`
             : ''}&sortBy=${selectedSort.sort}&order=asc${search}`)
             .then(response => {return response.json()})
@@ -27,7 +28,7 @@ const Home = ({ searchValue }) => {
             setIsLoading(false)
         })
         window.scrollTo(0, 0)
-    }, [activeCategory, selectedSort, search])
+    }, [activeCategory, selectedSort, search, currentPage])
 
      const items = pizzas
          // .filter(obj => {
@@ -60,7 +61,7 @@ const Home = ({ searchValue }) => {
             ? skeleton
             : items}
     </div>
-            <Pagination />
+            <Pagination onChangePage={number => setCurrentPage(number)}/>
         </div>
     );
 };
