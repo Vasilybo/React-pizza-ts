@@ -26,7 +26,7 @@ const Home = ({ searchValue }) => {
             setIsLoading(false)
         })
         window.scrollTo(0, 0)
-    }, [activeCategory, selectedSort, searchValue])
+    }, [activeCategory, selectedSort, search])
 
      const items = pizzas
          // .filter(obj => {
