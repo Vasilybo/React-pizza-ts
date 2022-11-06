@@ -1,24 +1,31 @@
 import React, {useEffect, useState, useContext} from 'react';
+import { useSelector } from "react-redux";
 
 import Categories from "../components/Categories";
 import SortBy from "../components/SortBy";
 import SkeletonLoader from "../components/PizzaBlock/SkeletonLoader";
 import PizzaBlock from "../components/PizzaBlock";
 import Pagination from "../components/Pagination";
-import {SearchContext} from "../App";
+import { SearchContext } from "../App";
 
 const Home = () => {
+
+    const activeCategory = useSelector((state) => state.filter.activeCategory)
 
     const { searchValue } = useContext(SearchContext)
     const [pizzas, setPizzas] = useState([])
     const [isLoading, setIsLoading] = useState(true)
 
-    const [activeCategory, setActiveCategory] = useState(0)
+    // const [activeCategory, setActiveCategory] = useState(0)
     const [currentPage, setCurrentPage] = useState(1)
     const [selectedSort, setSelectedSort] = useState({
         name: 'популярности', sort: 'rating'
     })
     const search = searchValue ? `&search=${searchValue}` : ''
+
+    const onClickCategory = (id) => {
+        console.log(id)
+    }
 
     useEffect(() => {
         setIsLoading(true)
@@ -54,7 +61,7 @@ const Home = () => {
         <div className="content__top">
             <Categories
                 value={activeCategory}
-                onClickCategory={(index) => setActiveCategory(index)} />
+                onClickCategory={onClickCategory} />
             <SortBy value={selectedSort}
                     onClickSortBy={(index) => setSelectedSort(index)} />
         </div>
