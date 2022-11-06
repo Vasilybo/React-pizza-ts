@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useContext} from 'react';
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import Categories from "../components/Categories";
 import SortBy from "../components/SortBy";
@@ -7,10 +7,12 @@ import SkeletonLoader from "../components/PizzaBlock/SkeletonLoader";
 import PizzaBlock from "../components/PizzaBlock";
 import Pagination from "../components/Pagination";
 import { SearchContext } from "../App";
+import { setActiveCategory } from "../redux/slices/filterSlice";
 
 const Home = () => {
 
     const activeCategory = useSelector((state) => state.filter.activeCategory)
+    const dispatch = useDispatch()
 
     const { searchValue } = useContext(SearchContext)
     const [pizzas, setPizzas] = useState([])
@@ -24,7 +26,7 @@ const Home = () => {
     const search = searchValue ? `&search=${searchValue}` : ''
 
     const onClickCategory = (id) => {
-        console.log(id)
+        dispatch(setActiveCategory(id))
     }
 
     useEffect(() => {
