@@ -3,6 +3,8 @@ import { useSelector, useDispatch} from "react-redux";
 
 function SortBy() {
 
+    const dispatch = useDispatch()
+
     const [isVisible, setIsVisible] = useState(false)
     const list = [
         {name: 'популярности', sort: 'rating'},
