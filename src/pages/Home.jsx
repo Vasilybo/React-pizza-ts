@@ -17,8 +17,6 @@ const Home = () => {
     const { searchValue } = useContext(SearchContext)
     const [pizzas, setPizzas] = useState([])
     const [isLoading, setIsLoading] = useState(true)
-
-    // const [activeCategory, setActiveCategory] = useState(0)
     const [currentPage, setCurrentPage] = useState(1)
     const [selectedSort, setSelectedSort] = useState({
         name: 'популярности', sort: 'rating'
