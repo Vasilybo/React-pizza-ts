@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-function SortBy({ value, onClickSortBy }) {
+function SortBy() {
 
     const [isVisible, setIsVisible] = useState(false)
     const list = [
