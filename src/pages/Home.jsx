@@ -18,9 +18,6 @@ const Home = () => {
     const [pizzas, setPizzas] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [currentPage, setCurrentPage] = useState(1)
-    const [selectedSort, setSelectedSort] = useState({
-        name: 'популярности', sort: 'rating'
-    })
     const search = searchValue ? `&search=${searchValue}` : ''
 
     const onClickCategory = (id) => {
@@ -62,8 +59,7 @@ const Home = () => {
             <Categories
                 value={activeCategory}
                 onClickCategory={onClickCategory} />
-            <SortBy value={selectedSort}
-                    onClickSortBy={(index) => setSelectedSort(index)} />
+            <SortBy />
         </div>
     <h2 className="content__title">Все пиццы</h2>
     <div className="content__items">
