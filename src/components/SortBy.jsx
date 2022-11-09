@@ -1,18 +1,21 @@
 import React, {useState} from 'react';
 import { useSelector, useDispatch} from "react-redux";
+import { setSelectedSort } from "../redux/slices/filterSlice";
+
+
+const list = [
+    {name: 'популярности', sortProperty: 'rating'},
+    {name: 'цене', sortProperty: 'price'},
+    {name: 'алфавиту', sortProperty: 'title'},]
 
 function SortBy() {
 
     const dispatch = useDispatch()
-
+    const sort = useSelector(state => state.filter.sort)
     const [isVisible, setIsVisible] = useState(false)
-    const list = [
-        {name: 'популярности', sort: 'rating'},
-        {name: 'цене', sort: 'price'},
-        {name: 'алфавиту', sort: 'title'},]
 
-    const onClickSortName = (index) => {
-        onClickSortBy(index)
+    const onClickSortName = (obj) => {
+        dispatch(setSelectedSort(obj))
         setIsVisible(false)
     }
 
@@ -35,7 +38,7 @@ function SortBy() {
                 <span
                     onClick={() => setIsVisible(!isVisible)}
                 >
-                    {value.name}
+                    {sort.name}
                 </span>
             </div>
             { isVisible && <div className="sort__popup">
@@ -44,7 +47,7 @@ function SortBy() {
                         list.map((obj, index) => (
                             <li
                                 key={obj + index}
-                                className={value.sort === obj.sort ? 'active' : ''}
+                                className={sort.sortProperty === obj.sort ? 'active' : ''}
                                 onClick={() => onClickSortName(obj)}
                             >{obj.name}
                             </li>
