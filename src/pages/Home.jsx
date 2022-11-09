@@ -11,7 +11,8 @@ import { setActiveCategory } from "../redux/slices/filterSlice";
 
 const Home = () => {
 
-    const activeCategory = useSelector((state) => state.filter.activeCategory)
+    const { activeCategory, sort } = useSelector((state) => state.filter)
+    const selectedSort = sort.sortProperty
     const dispatch = useDispatch()
 
     const { searchValue } = useContext(SearchContext)
