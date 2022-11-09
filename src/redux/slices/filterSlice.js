@@ -4,7 +4,7 @@ const initialState = {
     activeCategory: 0,
     sort: {
         name: 'популярности',
-        sort: 'rating',
+        sortProperty: 'rating',
     }
 }
 
@@ -15,9 +15,12 @@ export const filterSlice = createSlice({
         setActiveCategory (state, action) {
             state.activeCategory = action.payload
         },
+        setSelectedSort (state, action) {
+            state.sort = action.payload
+        },
     },
 })
 
-export const { setActiveCategory } = filterSlice.actions
+export const { setActiveCategory, setSelectedSort } = filterSlice.actions
 
 export default filterSlice.reducer
