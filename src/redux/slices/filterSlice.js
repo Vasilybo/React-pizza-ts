@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     activeCategory: 0,
+    pageCount: 1,
     sort: {
         name: 'популярности',
         sortProperty: 'rating',
