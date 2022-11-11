@@ -19,7 +19,6 @@ const Home = () => {
     const { searchValue } = useContext(SearchContext)
     const [pizzas, setPizzas] = useState([])
     const [isLoading, setIsLoading] = useState(true)
-    const [currentPage, setCurrentPage] = useState(1)
     const search = searchValue ? `&search=${searchValue}` : ''
 
     const onClickCategory = (id) => {
