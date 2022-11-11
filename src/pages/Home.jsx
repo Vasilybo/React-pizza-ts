@@ -28,14 +28,6 @@ const Home = () => {
 
     useEffect(() => {
         setIsLoading(true)
-        // fetch(`https://632c28bf5568d3cad87e6524.mockapi.io/pizzas?page=${currentPage}&limit=4&${activeCategory > 0
-        //     ? `category=${activeCategory}`
-        //     : ''}&sortBy=${selectedSort.sort}&order=asc${search}`)
-        //     .then(response => {return response.json()})
-        //     .then(json => {
-        //     setPizzas(json)
-        //     setIsLoading(false)
-        // })
         axios.get(`https://632c28bf5568d3cad87e6524.mockapi.io/pizzas?page=${currentPage}&limit=4&${activeCategory > 0
             ? `category=${activeCategory}`
             : ''}&sortBy=${selectedSort.sort}&order=asc${search}`)
