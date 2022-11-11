@@ -42,6 +42,14 @@ const Home = () => {
         window.scrollTo(0, 0)
     }, [activeCategory, selectedSort, search, currentPage])
 
+    useEffect(() => {
+        const queryString = qs.stringify({
+            sortProperty: sort.sortProperty,
+            activeCategory,
+            currentPage,
+        })
+    }, [activeCategory, sort.sortProperty, currentPage])
+
 
      const items = pizzas
          // .filter(obj => {
