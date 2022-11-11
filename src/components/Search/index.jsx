@@ -8,7 +8,7 @@ import {SearchContext} from "../../App";
 const Search = () => {
 
     const [value, setValue] = useState()
-    const { searchValue, setSearchValue } = useContext(SearchContext)
+    const { setSearchValue } = useContext(SearchContext)
     const inputRef = useRef()
 
     const onClickClear = () => {
