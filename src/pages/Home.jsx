@@ -8,7 +8,7 @@ import SkeletonLoader from "../components/PizzaBlock/SkeletonLoader";
 import PizzaBlock from "../components/PizzaBlock";
 import Pagination from "../components/Pagination";
 import { SearchContext } from "../App";
-import { setActiveCategory } from "../redux/slices/filterSlice";
+import { setActiveCategory, setPageCount } from "../redux/slices/filterSlice";
 
 const Home = () => {
 
