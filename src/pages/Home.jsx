@@ -1,5 +1,6 @@
 import React, {useEffect, useState, useContext} from 'react';
 import { useSelector, useDispatch } from "react-redux";
+import axios from "axios"
 
 import Categories from "../components/Categories";
 import SortBy from "../components/SortBy";
@@ -27,14 +28,21 @@ const Home = () => {
 
     useEffect(() => {
         setIsLoading(true)
-        fetch(`https://632c28bf5568d3cad87e6524.mockapi.io/pizzas?page=${currentPage}&limit=4&${activeCategory > 0
+        // fetch(`https://632c28bf5568d3cad87e6524.mockapi.io/pizzas?page=${currentPage}&limit=4&${activeCategory > 0
+        //     ? `category=${activeCategory}`
+        //     : ''}&sortBy=${selectedSort.sort}&order=asc${search}`)
+        //     .then(response => {return response.json()})
+        //     .then(json => {
+        //     setPizzas(json)
+        //     setIsLoading(false)
+        // })
+        axios.get(`https://632c28bf5568d3cad87e6524.mockapi.io/pizzas?page=${currentPage}&limit=4&${activeCategory > 0
             ? `category=${activeCategory}`
             : ''}&sortBy=${selectedSort.sort}&order=asc${search}`)
-            .then(response => {return response.json()})
-            .then(json => {
-            setPizzas(json)
-            setIsLoading(false)
-        })
+            .then((response) => {
+                    setPizzas(response.data)
+                    setIsLoading(false)
+            })
         window.scrollTo(0, 0)
     }, [activeCategory, selectedSort, search, currentPage])
 
