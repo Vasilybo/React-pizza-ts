@@ -1,6 +1,7 @@
 import React, {useEffect, useState, useContext} from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios"
+import qs from 'qs'
 
 import Categories from "../components/Categories";
 import SortBy from "../components/SortBy";
@@ -40,6 +41,7 @@ const Home = () => {
             })
         window.scrollTo(0, 0)
     }, [activeCategory, selectedSort, search, currentPage])
+
 
      const items = pizzas
          // .filter(obj => {
