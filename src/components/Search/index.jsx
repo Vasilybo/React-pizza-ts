@@ -16,8 +16,16 @@ const Search = () => {
         inputRef.current.focus()
     }
 
+    const updateSearchValue = useCallback(
+        debounce((string) => {
+            setSearchValue(string)
+        }, 1000),
+        [],
+    )
+
     const onChangeInput = (event) => {
         setValue(event.target.value)
+        updateSearchValue(event.target.value)
     }
 
     return (
