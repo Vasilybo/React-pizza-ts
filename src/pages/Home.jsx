@@ -12,7 +12,7 @@ import { setActiveCategory, setPageCount } from "../redux/slices/filterSlice";
 
 const Home = () => {
 
-    const { activeCategory, sort } = useSelector((state) => state.filter)
+    const { activeCategory, sort, pageCount } = useSelector((state) => state.filter)
     const selectedSort = sort.sortProperty
     const dispatch = useDispatch()
 
@@ -31,7 +31,7 @@ const Home = () => {
 
     useEffect(() => {
         setIsLoading(true)
-        axios.get(`https://632c28bf5568d3cad87e6524.mockapi.io/pizzas?page=${currentPage}&limit=4&${activeCategory > 0
+        axios.get(`https://632c28bf5568d3cad87e6524.mockapi.io/pizzas?page=${pageCount}&limit=4&${activeCategory > 0
             ? `category=${activeCategory}`
             : ''}&sortBy=${selectedSort.sort}&order=asc${search}`)
             .then((response) => {
@@ -39,7 +39,7 @@ const Home = () => {
                     setIsLoading(false)
             })
         window.scrollTo(0, 0)
-    }, [activeCategory, selectedSort, search, currentPage])
+    }, [activeCategory, selectedSort, search, pageCount])
 
      const items = pizzas
          // .filter(obj => {
