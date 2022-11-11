@@ -8,7 +8,7 @@ import SkeletonLoader from "../components/PizzaBlock/SkeletonLoader";
 import PizzaBlock from "../components/PizzaBlock";
 import Pagination from "../components/Pagination";
 import { SearchContext } from "../App";
-import { setActiveCategory, setPageCount } from "../redux/slices/filterSlice";
+import { setActiveCategory, setCurrentPage } from "../redux/slices/filterSlice";
 
 const Home = () => {
 
@@ -26,7 +26,7 @@ const Home = () => {
     }
 
     const onChangePage = (number) => {
-        dispatch(setPageCount(number))
+        dispatch(setCurrentPage(number))
     }
 
     useEffect(() => {
