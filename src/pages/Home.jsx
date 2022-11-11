@@ -25,6 +25,10 @@ const Home = () => {
         dispatch(setActiveCategory(id))
     }
 
+    const onChangePage = (number) => {
+        dispatch(setPageCount(number))
+    }
+
     useEffect(() => {
         setIsLoading(true)
         axios.get(`https://632c28bf5568d3cad87e6524.mockapi.io/pizzas?page=${currentPage}&limit=4&${activeCategory > 0
@@ -67,7 +71,7 @@ const Home = () => {
             ? skeleton
             : items}
     </div>
-            <Pagination onChangePage={number => setCurrentPage(number)}/>
+            <Pagination onChangePage={onChangePage}/>
         </div>
     );
 };
