@@ -71,7 +71,7 @@ const Home = () => {
             ? skeleton
             : items}
     </div>
-            <Pagination onChangePage={onChangePage}/>
+            <Pagination currentPage={currentPage} onChangePage={onChangePage}/>
         </div>
     );
 };
