@@ -2,7 +2,6 @@ import React, {useEffect, useState, useContext} from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios"
 import qs from 'qs'
-import { useNavigate } from "react-router-dom";
 
 import Categories from "../components/Categories";
 import SortBy from "../components/SortBy";
@@ -13,7 +12,6 @@ import { SearchContext } from "../App";
 import { setActiveCategory, setCurrentPage } from "../redux/slices/filterSlice";
 
 const Home = () => {
-    const navigate = useNavigate()
 
     const { activeCategory, sort, currentPage } = useSelector((state) => state.filter)
     const selectedSort = sort.sortProperty
