@@ -1,7 +1,6 @@
 import React, {useEffect, useState, useContext} from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios"
-import qs from 'qs'
 
 import Categories from "../components/Categories";
 import SortBy from "../components/SortBy";
