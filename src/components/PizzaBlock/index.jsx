@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {useSelector, useDispatch} from "react-redux";
 
 const PizzaBlock = ({ name, price, imageUrl, sizes, types }) => {
 
