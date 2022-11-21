@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {useSelector, useDispatch} from "react-redux";
+import {addProduct} from "../../redux/slices/cartSlice";
 
 const PizzaBlock = ({ id, name, price, imageUrl, sizes, types }) => {
     const dispatch = useDispatch()
@@ -16,6 +17,7 @@ const PizzaBlock = ({ id, name, price, imageUrl, sizes, types }) => {
             type: activeType,
             size: activeSize,
         };
+        dispatch(addProduct)
     }
 
     return (
