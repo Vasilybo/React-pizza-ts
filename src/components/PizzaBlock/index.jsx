@@ -60,6 +60,7 @@ const PizzaBlock = ({ id, name, price, imageUrl, sizes, types }) => {
                 <div className="pizza-block__bottom">
                     <div className="pizza-block__price">от {price} ₽</div>
                     <button
+                        onClick={onClickAdd}
                         className="button button--outline button--add">
                         <svg
                             width="12"
