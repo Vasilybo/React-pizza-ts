@@ -1,12 +1,22 @@
 import React, {useState} from 'react';
 import {useSelector, useDispatch} from "react-redux";
 
-const PizzaBlock = ({ name, price, imageUrl, sizes, types }) => {
+const PizzaBlock = ({ id, name, price, imageUrl, sizes, types }) => {
 
     const [activeType, setActiveType] = useState(0)
     const [activeSize, setActiveSize] = useState(0)
-
     const pizzasType = ['Тонкое', 'Традиционное']
+
+    const onClickAdd = () => {
+        const item = {
+            id,
+            name,
+            price,
+            imageUrl,
+            type: activeType,
+            size: activeSize,
+        }
+    }
 
     return (
         <div className="pizza-block-wrapper">
