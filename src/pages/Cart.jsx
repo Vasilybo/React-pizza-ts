@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-
+import CartItem from "../components/CartItem";
 
 const Cart = () => {
     const dispatch = useDispatch()
@@ -28,7 +28,7 @@ const Cart = () => {
                 </div>
             </div>
             <div className="content__items">
-
+                <CartItem/>
 
             </div>
             <div className="cart__bottom">
