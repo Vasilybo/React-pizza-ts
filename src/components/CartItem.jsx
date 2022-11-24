@@ -32,7 +32,7 @@ function CartItem({ id, name, type, price, count, imageUrl}) {
                 </div>
             </div>
             <div className="cart__item-price">
-                <b>{price} ₽</b>
+                <b>{price * count} ₽</b>
             </div>
             <div className="cart__item-remove">
                 <div className="button button--outline button--circle">
