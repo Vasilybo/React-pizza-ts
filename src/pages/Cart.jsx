@@ -28,7 +28,12 @@ const Cart = () => {
                 </div>
             </div>
             <div className="content__items">
-                <CartItem/>
+                {
+                    items.map((item) => (
+                        <CartItem
+                            {...item}/>
+                    ))
+                }
 
             </div>
             <div className="cart__bottom">
