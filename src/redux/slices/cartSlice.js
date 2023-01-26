@@ -32,10 +32,6 @@ const cartSlice = createSlice({
                 }, 0)
         },
 
-        incrementProduct (state, action) {
-            const findProduct = state.items.find((obj) => obj.id === action.payload)
-        },
-
         decrementProduct (state, action) {
             const findProduct = state.items.find((obj) => obj.id === action.payload)
 
