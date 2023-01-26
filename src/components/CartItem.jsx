@@ -6,6 +6,12 @@ function CartItem({ id, name, type, price, count, imageUrl}) {
 
     const dispatch = useDispatch()
 
+    const onClickIncrement = () => {
+        dispatch(addProduct({
+            id,
+        }))
+    }
+
     return (
         <div className="cart__item">
             <div className="cart__item-img">
