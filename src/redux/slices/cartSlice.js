@@ -38,6 +38,10 @@ const cartSlice = createSlice({
 
         deccrementProduct (state, action) {
             const findProduct = state.items.find((obj) => obj.id === action.payload)
+
+            if (findProduct) {
+                findProduct.count--;
+            }
         },
 
         // addProduct(state, action) {
