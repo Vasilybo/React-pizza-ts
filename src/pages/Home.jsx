@@ -50,6 +50,7 @@ const Home = () => {
             name={obj.name}
             price={obj.price}
             imageUrl={obj.imageUrl}
+            id={obj.id}
             sizes={obj.sizes}
             types={obj.types}
         />
