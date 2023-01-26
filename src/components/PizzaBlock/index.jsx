@@ -26,7 +26,6 @@ const PizzaBlock = ({ id, name, price, imageUrl, sizes, types }) => {
     const pizzasType = ['Тонкое', 'Традиционное']
 
 
-
     const onClickAdd = () => {
         const item = {
             id,
