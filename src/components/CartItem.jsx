@@ -1,6 +1,11 @@
 import React from 'react';
+import {useDispatch} from "react-redux";
+import {addProduct} from "../redux/slices/cartSlice";
 
 function CartItem({ id, name, type, price, count, imageUrl}) {
+
+    const dispatch = useDispatch()
+
     return (
         <div className="cart__item">
             <div className="cart__item-img">
