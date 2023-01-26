@@ -7,7 +7,7 @@ import {clearProduct} from "../redux/slices/cartSlice";
 const Cart = () => {
 
     const dispatch = useDispatch()
-    const items = useSelector((state) => state.cart.items)
+    const {totalPrice, items} = useSelector((state) => state.cart)
 
     const onClickClear = () => {
         if (window.confirm('Вы действительно хотите очистить корзину?')) {
@@ -49,7 +49,7 @@ const Cart = () => {
             <div className="cart__bottom">
                 <div className="cart__bottom-details">
                     <span> Всего пицц: <b>3 шт.</b> </span>
-                    <span> Сумма заказа: <b>900 ₽</b> </span>
+                    <span> Сумма заказа: <b>{totalPrice} ₽</b> </span>
                 </div>
                 <div className="cart__bottom-buttons">
                     <Link to="/" className="button button--outline button--add go-back-btn">
