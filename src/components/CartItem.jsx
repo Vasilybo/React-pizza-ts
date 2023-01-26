@@ -4,6 +4,8 @@ import {addProduct, decrementProduct, removeProduct} from "../redux/slices/cartS
 
 function CartItem({ id, name, type, price, count, imageUrl}) {
 
+    const findItem = price * count
+
     const dispatch = useDispatch()
 
     const onClickIncrement = () => {
@@ -47,7 +49,7 @@ function CartItem({ id, name, type, price, count, imageUrl}) {
                 </div>
             </div>
             <div className="cart__item-price">
-                <b>{price * count} ₽</b>
+                <b>{findItem} ₽</b>
             </div>
             <div className="cart__item-remove">
                 <div className="button button--outline button--circle">
