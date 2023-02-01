@@ -2,7 +2,7 @@ import React from 'react';
 import {useDispatch} from "react-redux";
 import {addProduct, decrementProduct, removeProduct} from "../redux/slices/cartSlice";
 
-function CartItem({ id, name, type, price, count, imageUrl}) {
+function CartItem({ id, name, type, size, price, count, imageUrl}) {
 
     const findItem = price * count
 
@@ -35,7 +35,7 @@ function CartItem({ id, name, type, price, count, imageUrl}) {
             </div>
             <div className="cart__item-info">
                 <h3>{name}</h3>
-                <p>{type}, 26 см.</p>
+                <p>{type}, {size} см.</p>
             </div>
             <div className="cart__item-count">
                 <div onClick={onClickDecrement} className="button button--outline button--circle cart__item-count-minus">
