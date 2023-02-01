@@ -29,16 +29,32 @@ const Home = () => {
         dispatch(setCurrentPage(number))
     }
 
-    useEffect(() => {
+    const fetchPizzas = async () => {
         setIsLoading(true)
-        axios.get(`https://632c28bf5568d3cad87e6524.mockapi.io/pizzas?page=${currentPage}&limit=4&${activeCategory > 0
-            ? `category=${activeCategory}`
-            : ''}&sortBy=${selectedSort.sort}&order=asc${search}`)
-            .then((response) => {
-                    setPizzas(response.data)
-                    setIsLoading(false)
-            })
+        try {
+            const response = await axios.get(`https://632c28bf5568d3cad87e6524.mockapi.io/pizzas?page=${currentPage}&limit=4&${activeCategory > 0
+                ? `category=${activeCategory}`
+                : ''}&sortBy=${selectedSort.sort}&order=asc${search}`)
+            setPizzas(response.data)
+        } catch (error) {
+            setIsLoading(false)
+            console.log('ERROR', error)
+        } finally {
+            setIsLoading(false)
+        }
+
         window.scrollTo(0, 0)
+    }
+
+    useEffect( () => {
+        fetchPizzas()
+
+        // axios.get(`https://632c28bf5568d3cad87e6524.mockapi.io/pizzas?page=${currentPage}&limit=4&${activeCategory > 0
+        //     ? `category=${activeCategory}`
+        //     : ''}&sortBy=${selectedSort.sort}&order=asc${search}`)
+        //     .then((response) => {
+        //             setPizzas(response.data)
+        //             setIsLoading(false)
     }, [activeCategory, selectedSort, search, currentPage])
 
      const items = pizzas
