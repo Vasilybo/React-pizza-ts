@@ -9,11 +9,10 @@ import Pagination from "../components/Pagination";
 import { SearchContext } from "../App";
 import { setActiveCategory, setCurrentPage } from "../redux/slices/filterSlice";
 import { fetchPizzas } from "../redux/slices/pizzasSlice";
-import {selectorCart} from "../redux/slices/cartSlice";
 
 const Home = () => {
 
-    const { activeCategory, sort, currentPage } = useSelector(selectorCart)
+    const { activeCategory, sort, currentPage } = useSelector((state) => state.filter)
     const { items, status } = useSelector((state) => state.pizzas)
     console.log(items)
     const selectedSort = sort.sortProperty
