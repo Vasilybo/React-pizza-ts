@@ -19,7 +19,7 @@ const Home = () => {
     const dispatch = useDispatch()
 
     const { searchValue } = useContext(SearchContext)
-    const [isLoading, setIsLoading] = useState(true)
+    // const [isLoading, setIsLoading] = useState(true)
     const search = searchValue ? `&search=${searchValue}` : ''
 
     const onClickCategory = (id) => {
@@ -31,7 +31,7 @@ const Home = () => {
     }
 
     const getPizzas = async () => {
-        setIsLoading(true)
+        // setIsLoading(true)
         try {
             // const { data } = await axios.get(`https://632c28bf5568d3cad87e6524.mockapi.io/pizzas?page=${currentPage}&limit=4&${activeCategory > 0
             //     ? `category=${activeCategory}`
