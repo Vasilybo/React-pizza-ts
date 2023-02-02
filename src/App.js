@@ -11,7 +11,6 @@ function App() {
 
     return (
         <div className="wrapper">
-            <SearchContext.Provider value={{ searchValue, setSearchValue }}>
                 <Header />
                 <div className="content">
                     <Routes>
@@ -20,7 +19,6 @@ function App() {
                         <Route path='*' element={<NotFound />}/>
                     </Routes>
                 </div>
-            </SearchContext.Provider>
         </div>
     );
 }
