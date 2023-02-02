@@ -32,7 +32,6 @@ const Home = () => {
 
     const getPizzas = async () => {
         // setIsLoading(true)
-        try {
             // const { data } = await axios.get(`https://632c28bf5568d3cad87e6524.mockapi.io/pizzas?page=${currentPage}&limit=4&${activeCategory > 0
             //     ? `category=${activeCategory}`
             //     : ''}&sortBy=${selectedSort.sort}&order=asc${search}`)
@@ -42,9 +41,6 @@ const Home = () => {
                 selectedSort,
                 search,
             }))
-        } catch (error) {
-            console.log('ERROR', error)
-        }
 
         window.scrollTo(0, 0)
     }
