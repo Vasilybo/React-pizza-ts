@@ -9,7 +9,7 @@ const pizzasSlice = createSlice({
     initialState,
     reducers: {
         setPizzas(state, action) {
-            state.items = action.payload.items
+            state.items = action.payload
         }
     },
 })
