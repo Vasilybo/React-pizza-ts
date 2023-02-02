@@ -13,7 +13,8 @@ import { fetchPizzas } from "../redux/slices/pizzasSlice";
 const Home = () => {
 
     const { activeCategory, sort, currentPage } = useSelector((state) => state.filter)
-    const { pizzas, status } = useSelector((state) => state.pizzas.items)
+    const { items, status } = useSelector((state) => state.pizzas)
+    console.log(items)
     const selectedSort = sort.sortProperty
     const dispatch = useDispatch()
 
@@ -41,7 +42,7 @@ const Home = () => {
     useEffect( () => {
         getPizzas() }, [activeCategory, selectedSort, search, currentPage])
 
-     const items = pizzas.map((obj) => (
+     const pizzas = items.map((obj) => (
         <PizzaBlock
             key={obj + obj.name}
             name={obj.name}
@@ -67,7 +68,7 @@ const Home = () => {
     <div className="content__items">
         {status === 'loading'
             ? skeleton
-            : items}
+            : pizzas}
     </div>
             <Pagination currentPage={currentPage} onChangePage={onChangePage}/>
         </div>
