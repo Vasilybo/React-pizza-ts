@@ -4,7 +4,7 @@ import {addProduct, selectorCartItemById} from "../../redux/slices/cartSlice";
 
 const PizzaBlock = ({ id, name, price, imageUrl, sizes, types }) => {
     const dispatch = useDispatch()
-    const cartItem = useSelector(selectorCartItemById)
+    const cartItem = useSelector(selectorCartItemById(id))
 
     // const cartItem = useSelector((state) =>
     //     state.cart.items.find(
