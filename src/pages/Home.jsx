@@ -1,6 +1,6 @@
 import React, {useEffect, useState, useContext} from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import axios from "axios"
+// import axios from "axios"
 
 import Categories from "../components/Categories";
 import SortBy from "../components/SortBy";
@@ -9,7 +9,7 @@ import PizzaBlock from "../components/PizzaBlock";
 import Pagination from "../components/Pagination";
 import { SearchContext } from "../App";
 import { setActiveCategory, setCurrentPage } from "../redux/slices/filterSlice";
-import {setPizzas} from "../redux/slices/pizzasSlice";
+import { fetchPizzas } from "../redux/slices/pizzasSlice";
 
 const Home = () => {
 
@@ -30,13 +30,18 @@ const Home = () => {
         dispatch(setCurrentPage(number))
     }
 
-    const fetchPizzas = async () => {
+    const getPizzas = async () => {
         setIsLoading(true)
         try {
-            const { data } = await axios.get(`https://632c28bf5568d3cad87e6524.mockapi.io/pizzas?page=${currentPage}&limit=4&${activeCategory > 0
-                ? `category=${activeCategory}`
-                : ''}&sortBy=${selectedSort.sort}&order=asc${search}`)
-            dispatch(setPizzas(data))
+            // const { data } = await axios.get(`https://632c28bf5568d3cad87e6524.mockapi.io/pizzas?page=${currentPage}&limit=4&${activeCategory > 0
+            //     ? `category=${activeCategory}`
+            //     : ''}&sortBy=${selectedSort.sort}&order=asc${search}`)
+            dispatch(fetchPizzas({
+                currentPage,
+                activeCategory,
+                selectedSort,
+                search,
+            }))
         } catch (error) {
             setIsLoading(false)
             console.log('ERROR', error)
@@ -48,7 +53,7 @@ const Home = () => {
     }
 
     useEffect( () => {
-        fetchPizzas()
+        getPizzas()
 
         // axios.get(`https://632c28bf5568d3cad87e6524.mockapi.io/pizzas?page=${currentPage}&limit=4&${activeCategory > 0
         //     ? `category=${activeCategory}`
