@@ -7,12 +7,12 @@ import SkeletonLoader from "../components/PizzaBlock/SkeletonLoader";
 import PizzaBlock from "../components/PizzaBlock";
 import Pagination from "../components/Pagination";
 import { SearchContext } from "../App";
-import { setActiveCategory, setCurrentPage } from "../redux/slices/filterSlice";
+import {filterSelector, setActiveCategory, setCurrentPage} from "../redux/slices/filterSlice";
 import { fetchPizzas } from "../redux/slices/pizzasSlice";
 
 const Home = () => {
 
-    const { activeCategory, sort, currentPage } = useSelector((state) => state.filter)
+    const { activeCategory, sort, currentPage } = useSelector(filterSelector)
     const { items, status } = useSelector((state) => state.pizzas)
     console.log(items)
     const selectedSort = sort.sortProperty
