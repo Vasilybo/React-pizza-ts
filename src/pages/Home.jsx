@@ -9,6 +9,7 @@ import PizzaBlock from "../components/PizzaBlock";
 import Pagination from "../components/Pagination";
 import { SearchContext } from "../App";
 import { setActiveCategory, setCurrentPage } from "../redux/slices/filterSlice";
+import {setPizzas} from "../redux/slices/pizzasSlice";
 
 const Home = () => {
 
@@ -35,7 +36,7 @@ const Home = () => {
             const response = await axios.get(`https://632c28bf5568d3cad87e6524.mockapi.io/pizzas?page=${currentPage}&limit=4&${activeCategory > 0
                 ? `category=${activeCategory}`
                 : ''}&sortBy=${selectedSort.sort}&order=asc${search}`)
-            setPizzas(response.data)
+            dispatch(setPizzas(response.data))
         } catch (error) {
             setIsLoading(false)
             console.log('ERROR', error)
