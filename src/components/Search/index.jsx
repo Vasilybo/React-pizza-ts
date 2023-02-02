@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useRef, useState} from 'react';
+import React, {useCallback, useRef, useState} from 'react';
 import debounce from "lodash.debounce"
 
 import classes from "./search.module.scss";
@@ -20,8 +20,8 @@ const  Search = () => {
 
     const updateSearchValue = useCallback(
         debounce((string) => {
-            setSearchValue(string)
-        }, 300),
+            dispatch(setSearchValue(string))
+        }, 0),
         [],
     )
 
