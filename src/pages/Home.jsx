@@ -13,6 +13,7 @@ import { setActiveCategory, setCurrentPage } from "../redux/slices/filterSlice";
 const Home = () => {
 
     const { activeCategory, sort, currentPage } = useSelector((state) => state.filter)
+    const pizzas = useSelector((state) => state.pizzas.items)
     const selectedSort = sort.sortProperty
     const dispatch = useDispatch()
 
