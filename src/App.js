@@ -6,7 +6,6 @@ import Header from './components/Header'
 import NotFound from "./pages/NotFound";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
-import {useState} from "react";
 
 function App() {
 
