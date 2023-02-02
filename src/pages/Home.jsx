@@ -65,11 +65,18 @@ const Home = () => {
             <SortBy />
         </div>
     <h2 className="content__title">Все пиццы</h2>
-    <div className="content__items">
-        {status === 'loading'
-            ? skeleton
-            : pizzas}
-    </div>
+            {
+                status === 'error'
+                    ? ( <div>
+                        <h2>Произошла ошибка 😕</h2>
+                        <p>К сожалению, не удалось получить пиццы.</p>
+                    </div> )
+                    : (  <div className="content__items">
+                        {status === 'loading'
+                            ? skeleton
+                            : pizzas}
+                    </div> )
+            }
             <Pagination currentPage={currentPage} onChangePage={onChangePage}/>
         </div>
     );
