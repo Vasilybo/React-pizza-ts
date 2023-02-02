@@ -8,8 +8,6 @@ import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import {useState} from "react";
 
-export const SearchContext = React.createContext()
-
 function App() {
 
     const [searchValue, setSearchValue] = useState('');
