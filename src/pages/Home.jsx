@@ -43,10 +43,7 @@ const Home = () => {
                 search,
             }))
         } catch (error) {
-            setIsLoading(false)
             console.log('ERROR', error)
-        } finally {
-            setIsLoading(false)
         }
 
         window.scrollTo(0, 0)
