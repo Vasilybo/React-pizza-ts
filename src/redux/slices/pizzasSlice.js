@@ -4,7 +4,7 @@ const initialState = {
     items: [],
 }
 
-const cartSlice = createSlice({
+const pizzasSlice = createSlice({
     name: 'pizzas',
     initialState,
     reducers: {
