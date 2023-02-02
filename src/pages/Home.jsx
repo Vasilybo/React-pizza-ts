@@ -6,19 +6,16 @@ import SortBy from "../components/SortBy";
 import SkeletonLoader from "../components/PizzaBlock/SkeletonLoader";
 import PizzaBlock from "../components/PizzaBlock";
 import Pagination from "../components/Pagination";
-import { SearchContext } from "../App";
 import {filterSelector, setActiveCategory, setCurrentPage} from "../redux/slices/filterSlice";
 import {fetchPizzas, pizzasSelector} from "../redux/slices/pizzasSlice";
 
 const Home = () => {
 
-    const { activeCategory, sort, currentPage } = useSelector(filterSelector)
+    const { activeCategory, sort, currentPage, searchValue } = useSelector(filterSelector)
     const { items, status } = useSelector(pizzasSelector)
-    console.log(items)
     const selectedSort = sort.sortProperty
     const dispatch = useDispatch()
 
-    const { searchValue } = useContext(SearchContext)
     const search = searchValue ? `&search=${searchValue}` : ''
 
     const onClickCategory = (id) => {
