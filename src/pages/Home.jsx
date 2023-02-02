@@ -14,7 +14,7 @@ import { fetchPizzas } from "../redux/slices/pizzasSlice";
 const Home = () => {
 
     const { activeCategory, sort, currentPage } = useSelector((state) => state.filter)
-    const pizzas = useSelector((state) => state.pizzas.items)
+    const { pizzas, status} = useSelector((state) => state.pizzas.items)
     const selectedSort = sort.sortProperty
     const dispatch = useDispatch()
 
@@ -83,7 +83,7 @@ const Home = () => {
         </div>
     <h2 className="content__title">Все пиццы</h2>
     <div className="content__items">
-        {isLoading
+        {status === 'loading'
             ? skeleton
             : items}
     </div>
