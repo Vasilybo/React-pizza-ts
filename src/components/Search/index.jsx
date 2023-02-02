@@ -3,14 +3,13 @@ import debounce from "lodash.debounce"
 
 import classes from "./search.module.scss";
 
-import {SearchContext} from "../../App";
 import {useDispatch} from "react-redux";
+import {setSearchValue} from "../../redux/slices/filterSlice";
 
 const  Search = () => {
 
     const dispatch = useDispatch
     const [value, setValue] = useState()
-    const { setSearchValue } = useContext(SearchContext)
     const inputRef = useRef()
 
     const onClickClear = () => {
