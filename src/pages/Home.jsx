@@ -1,6 +1,5 @@
-import React, {useEffect, useState, useContext} from 'react';
+import React, {useEffect, useContext} from 'react';
 import { useSelector, useDispatch } from "react-redux";
-// import axios from "axios"
 
 import Categories from "../components/Categories";
 import SortBy from "../components/SortBy";
@@ -14,12 +13,11 @@ import { fetchPizzas } from "../redux/slices/pizzasSlice";
 const Home = () => {
 
     const { activeCategory, sort, currentPage } = useSelector((state) => state.filter)
-    const { pizzas, status} = useSelector((state) => state.pizzas.items)
+    const { pizzas, status } = useSelector((state) => state.pizzas.items)
     const selectedSort = sort.sortProperty
     const dispatch = useDispatch()
 
     const { searchValue } = useContext(SearchContext)
-    // const [isLoading, setIsLoading] = useState(true)
     const search = searchValue ? `&search=${searchValue}` : ''
 
     const onClickCategory = (id) => {
@@ -31,35 +29,19 @@ const Home = () => {
     }
 
     const getPizzas = async () => {
-        // setIsLoading(true)
-            // const { data } = await axios.get(`https://632c28bf5568d3cad87e6524.mockapi.io/pizzas?page=${currentPage}&limit=4&${activeCategory > 0
-            //     ? `category=${activeCategory}`
-            //     : ''}&sortBy=${selectedSort.sort}&order=asc${search}`)
             dispatch(fetchPizzas({
                 currentPage,
                 activeCategory,
                 selectedSort,
                 search,
             }))
-
         window.scrollTo(0, 0)
     }
 
     useEffect( () => {
-        getPizzas()
+        getPizzas() }, [activeCategory, selectedSort, search, currentPage])
 
-        // axios.get(`https://632c28bf5568d3cad87e6524.mockapi.io/pizzas?page=${currentPage}&limit=4&${activeCategory > 0
-        //     ? `category=${activeCategory}`
-        //     : ''}&sortBy=${selectedSort.sort}&order=asc${search}`)
-        //     .then((response) => {
-        //             setPizzas(response.data)
-        //             setIsLoading(false)
-    }, [activeCategory, selectedSort, search, currentPage])
-
-     const items = pizzas
-         // .filter(obj => {
-         // return !!obj.name.toLowerCase().includes(searchValue.toLowerCase());})
-         .map((obj) => (
+     const items = pizzas.map((obj) => (
         <PizzaBlock
             key={obj + obj.name}
             name={obj.name}
