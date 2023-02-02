@@ -18,7 +18,6 @@ const Home = () => {
     const dispatch = useDispatch()
 
     const { searchValue } = useContext(SearchContext)
-    const [pizzas, setPizzas] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const search = searchValue ? `&search=${searchValue}` : ''
 
