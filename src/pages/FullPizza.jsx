@@ -9,9 +9,14 @@ const FullPizza = () => {
 
     useEffect(() => {
         async function fetchPizza() {
-            const {data} = await axios.get('https://632c28bf5568d3cad87e6524.mockapi.io/pizzas/' + id)
-            setPizza(data)
+            try {
+                const {data} = await axios.get('https://632c28bf5568d3cad87e6524.mockapi.io/pizzas/' + id)
+                setPizza(data)
+            } catch (error) {
+                alert('Ошибка при получении пиццы')
+            }
         }
+        fetchPizza()
     }, [])
 
     return (
