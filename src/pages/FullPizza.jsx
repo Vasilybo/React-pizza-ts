@@ -7,6 +7,12 @@ const FullPizza = () => {
     const [pizza, setPizza] = useState()
     const { id } = useParams()
 
+    useEffect(() => {
+        async function fetchPizza() {
+            const {data} = await axios.get('https://632c28bf5568d3cad87e6524.mockapi.io/pizzas/' + id)
+        }
+    }, [])
+
     return (
         <div className="container">
             <img src=""/>
