@@ -1,14 +1,16 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
+import axios from "axios";
 
 const FullPizza = () => {
 
-    const params = useParams()
+    const [pizza, setPizza] = useState()
+    const { id } = useParams()
 
     return (
         <div className="container">
             <img src=""/>
-            <h2>2222</h2>
+            <h2>{id}</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab amet corporis culpa dolores fugit quidem ut. Aliquid dolor est ex illo mollitia nesciunt quasi quos tenetur voluptatum. Nihil, unde, ut.</p>
             <h4>250</h4>
         </div>
