@@ -1,6 +1,10 @@
 import React from 'react';
+import {useParams} from "react-router-dom";
 
 const FullPizza = () => {
+
+    const params = useParams()
+
     return (
         <div className="container">
             <img src=""/>
