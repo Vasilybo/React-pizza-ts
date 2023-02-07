@@ -17,7 +17,7 @@ const FullPizza = () => {
             }
         }
         fetchPizza()
-    }, [])
+    }, [id])
 
     if (!pizza) {
         return 'Загрузка...'
