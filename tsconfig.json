@@ -18,5 +18,6 @@
   },
   "include": [
     "src",
+    "src/custom.d.ts",
   ]
 }
