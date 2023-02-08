@@ -18,7 +18,6 @@ const Pagination = ({ currentPage, onChangePage }: PaginationProps) => {
             pageRangeDisplayed={4}
             pageCount={3}
             forcePage={currentPage - 1}
-            renderOnZeroPageCount={null}
         />
     );
 };
