@@ -15,7 +15,7 @@ const  Search = () => {
     const onClickClear = () => {
         dispatch(setSearchValue(value));
         setValue('')
-        inputRef.current.focus()
+        inputRef.current?.focus()
     }
 
     const updateSearchValue = useCallback(
