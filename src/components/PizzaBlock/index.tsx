@@ -8,25 +8,12 @@ type PizzaBlockProps = {
     price: number,
     imageUrl: string,
     sizes: number[],
-    types: number[]
+    types: number[],
 }
 
-const PizzaBlock = ({ id, name, price, imageUrl, sizes, types }: PizzaBlockProps) => {
+const PizzaBlock = ({ id, name, price, imageUrl, sizes, types, }: PizzaBlockProps) => {
     const dispatch = useDispatch()
     const cartItem = useSelector(selectorCartItemById(id))
-
-    // const cartItem = useSelector((state) =>
-    //     state.cart.items.find(
-    //         (obj) =>
-    //             obj.id === id &&
-    //             obj.type === pizzasType[activeType] &&
-    //             obj.size === sizes[activeSize]
-    //     )
-    // );
-
-    // const cartItem = useSelector((state) =>
-    //     state.cart.items.filter((obj) => obj.id === id))
-    // const addedCount = cartItem.reduce((sum, item) => sum + item.count, 0);
 
     const addedCount = cartItem ? cartItem.count : 0;
 
