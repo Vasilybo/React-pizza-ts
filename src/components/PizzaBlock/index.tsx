@@ -8,7 +8,7 @@ type PizzaBlockProps = {
     price: number,
     imageUrl: string,
     sizes: number[],
-    types: number
+    types: number[]
 }
 
 const PizzaBlock = ({ id, name, price, imageUrl, sizes, types }: PizzaBlockProps) => {
