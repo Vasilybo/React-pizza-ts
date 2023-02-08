@@ -19,7 +19,7 @@ function SortBy() {
     const sortRef = useRef()
     const [isVisible, setIsVisible] = useState(false)
 
-    const onClickSortName = (obj) => {
+    const onClickSortName = (obj: List) => {
         dispatch(setSelectedSort(obj))
         setIsVisible(false)
     }
