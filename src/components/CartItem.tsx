@@ -2,7 +2,17 @@ import React from 'react';
 import {useDispatch} from "react-redux";
 import {addProduct, decrementProduct, removeProduct} from "../redux/slices/cartSlice";
 
-function CartItem({ id, name, type, size, price, count, imageUrl}) {
+type CartItemProps = {
+    id: string,
+    name: string,
+    type: number,
+    size: number,
+    price: number,
+    count: number,
+    imageUrl: string
+}
+
+function CartItem({ id, name, type, size, price, count, imageUrl}: CartItemProps) {
 
     const findItem = price * count
 
