@@ -25,16 +25,15 @@ function SortBy() {
     }
 
     useEffect(() => {
-        const handleClickOutside = (event) => {
+        const handleClickOutside = (event: any) => {
             if(!event.path.includes(sortRef.current)) {
                 setIsVisible(false)
             }
         }
         document.body.addEventListener('click', handleClickOutside)
 
-        return () => {
+        return () =>
             document.body.removeEventListener('click', handleClickOutside)
-        }
     }, [])
 
     return (
