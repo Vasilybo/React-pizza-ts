@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
 import { useSelector, useDispatch} from "react-redux";
-import { setSelectedSort } from "../redux/slices/filterSlice";
+import {filterSelector, setSelectedSort} from "../redux/slices/filterSlice";
 
 type List = {
     name: string
@@ -15,7 +15,7 @@ const list: List[] = [
 function SortBy() {
 
     const dispatch = useDispatch()
-    const sort = useSelector(state => state.filter.sort)
+    const sort = useSelector(filterSelector)
     const sortRef = useRef<HTMLDivElement>(null)
     const [isVisible, setIsVisible] = useState(false)
 
