@@ -20,7 +20,7 @@ const FullPizza = () => {
     }, [id])
 
     if (!pizza) {
-        return 'Загрузка...'
+        return <>'Загрузка...'</>
     }
 
     return (
