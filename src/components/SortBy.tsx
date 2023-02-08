@@ -64,8 +64,8 @@ function SortBy() {
                     {
                         list.map((obj, index) => (
                             <li
-                                key={obj + index}
-                                className={sort.sortProperty === obj.sort ? 'active' : ''}
+                                key={index}
+                                className={sort.sortProperty === obj.sortProperty ? 'active' : ''}
                                 onClick={() => onClickSortName(obj)}
                             >{obj.name}
                             </li>
