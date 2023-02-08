@@ -43,7 +43,7 @@ const Home = () => {
         getPizzas()
     }, [activeCategory, selectedSort, search, currentPage])
 
-    const pizzas = items.map((obj) => (
+    const pizzas = items.map((obj: any) => (
         <Link to={`/pizza/${obj.id}`}
               key={obj + obj.name}>
             <PizzaBlock
