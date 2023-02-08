@@ -8,12 +8,12 @@ import {setSearchValue} from "../../redux/slices/filterSlice";
 
 const  Search = () => {
 
-    const dispatch = useDispatch
-    const [value, setValue] = useState()
+    const dispatch: (p:object) => void = useDispatch
+    const [value, setValue] = useState('')
     const inputRef = useRef<HTMLInputElement>(null)
 
     const onClickClear = () => {
-        dispatch(setSearchValue(""));
+        dispatch(setSearchValue(''));
         setValue("")
         inputRef.current?.focus()
     }
