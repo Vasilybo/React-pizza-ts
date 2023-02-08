@@ -3,7 +3,7 @@ import {useSelector, useDispatch} from "react-redux";
 import {addProduct, selectorCartItemById} from "../../redux/slices/cartSlice";
 
 type PizzaBlockProps = {
-    id: number,
+    id: string,
     name: string,
     price: number,
     imageUrl: string,
