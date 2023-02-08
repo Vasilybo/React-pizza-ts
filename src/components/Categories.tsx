@@ -1,5 +1,6 @@
 
-function Categories({ value, onClickCategory }) {
+
+const Categories = ({ value, onClickCategory }) => {
 
     const categories = ['Все', 'Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые',]
 
