@@ -4,7 +4,11 @@ import axios from "axios";
 
 const FullPizza = () => {
 
-    const [pizza, setPizza] = useState()
+    const [pizza, setPizza] = useState<{
+        imageUrl: string
+        name: string
+        price: number
+    }>()
     const { id } = useParams()
 
     useEffect(() => {
