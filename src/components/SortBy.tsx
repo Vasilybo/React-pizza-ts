@@ -2,8 +2,12 @@ import React, {useEffect, useRef, useState} from 'react';
 import { useSelector, useDispatch} from "react-redux";
 import { setSelectedSort } from "../redux/slices/filterSlice";
 
+type List = {
+    name: string
+    sortProperty: string
+}
 
-const list = [
+const list: List[] = [
     {name: 'популярности', sortProperty: 'rating'},
     {name: 'цене', sortProperty: 'price'},
     {name: 'алфавиту', sortProperty: 'title'},]
