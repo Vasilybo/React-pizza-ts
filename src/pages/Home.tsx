@@ -19,16 +19,18 @@ const Home = () => {
 
     const search = searchValue ? `&search=${searchValue}` : ''
 
-    const onClickCategory = (id) => {
+    const onClickCategory = (id: number) => {
         dispatch(setActiveCategory(id))
     }
 
-    const onChangePage = (number) => {
+    const onChangePage = (number: number) => {
         dispatch(setCurrentPage(number))
     }
 
     const getPizzas = async () => {
-        dispatch(fetchPizzas({
+        dispatch(
+            // @ts-ignore
+            fetchPizzas({
             currentPage,
             activeCategory,
             selectedSort,
