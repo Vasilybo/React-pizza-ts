@@ -1,6 +1,9 @@
+type CategoriesProps = {
+    value: number
+    onClickCategory: any
+}
 
-
-const Categories = ({ value, onClickCategory }) => {
+const Categories = ({ value, onClickCategory }: CategoriesProps) => {
 
     const categories = ['Все', 'Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые',]
 
