@@ -16,7 +16,7 @@ function SortBy() {
 
     const dispatch = useDispatch()
     const sort = useSelector(state => state.filter.sort)
-    const sortRef = useRef()
+    const sortRef = useRef<HTMLDivElement>(null)
     const [isVisible, setIsVisible] = useState(false)
 
     const onClickSortName = (obj: List) => {
