@@ -12,7 +12,7 @@ const  Search = () => {
     const [value, setValue] = useState<string>('')
     const inputRef = useRef<HTMLInputElement>(null)
 
-    const onClickClear = (event: React.MouseEvent<SVGSVGElement>) => {
+    const onClickClear = () => {
         dispatch(setSearchValue(''));
         setValue("")
         inputRef.current?.focus()
