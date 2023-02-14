@@ -7,7 +7,7 @@ type List = {
     sortProperty: string
 }
 
-type PopupClick = React.MouseEvent<HTMLBodyElement> & {
+type PopupClick = MouseEvent & {
     path: Node[]
 }
 
@@ -30,9 +30,7 @@ function SortBy() {
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
-            const _event = event as MouseEvent & {
-                path: Node[]
-            }
+            const _event = event as PopupClick
             if(sortRef.current && !_event.path.includes(sortRef.current)) {
                 setIsVisible(false)
             }
