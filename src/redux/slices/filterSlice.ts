@@ -1,6 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit'
 import {RootState} from "../store";
 
+interface FilterSliceState {
+    searchValue: string,
+    activeCategory: number,
+    currentPage: number,
+    sort: {
+        name: 'популярности',
+        sortProperty: 'rating',
+    }
+}
+
 const initialState = {
     searchValue: '',
     activeCategory: 0,
