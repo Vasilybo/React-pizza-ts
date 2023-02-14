@@ -1,6 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
 import {RootState} from "../store";
 
+type Sort = {
+    name: string;
+    sortProperty: 'rating';
+}
+
 interface FilterSliceState {
     searchValue: string,
     activeCategory: number,
