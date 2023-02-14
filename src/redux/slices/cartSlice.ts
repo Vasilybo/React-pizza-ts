@@ -14,7 +14,7 @@ interface CartSliceState {
     items: CartItem[]
 }
 
-const initialState = {
+const initialState: CartSliceState = {
     totalPrice: 0,
     items: [],
 }
