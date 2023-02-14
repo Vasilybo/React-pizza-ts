@@ -29,8 +29,11 @@ function SortBy() {
     }
 
     useEffect(() => {
-        const handleClickOutside = (event: PopupClick) => {
-            if(sortRef.current && !event.path.includes(sortRef.current)) {
+        const handleClickOutside = (event: MouseEvent) => {
+            const _event = event as MouseEvent & {
+                path: Node[]
+            }
+            if(sortRef.current && !_event.path.includes(sortRef.current)) {
                 setIsVisible(false)
             }
         }
