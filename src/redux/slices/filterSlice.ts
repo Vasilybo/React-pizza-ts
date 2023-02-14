@@ -13,7 +13,7 @@ interface FilterSliceState {
     sort: Sort,
 }
 
-const initialState = {
+const initialState: FilterSliceState = {
     searchValue: '',
     activeCategory: 0,
     currentPage: 1,
