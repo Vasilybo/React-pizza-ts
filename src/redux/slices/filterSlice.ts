@@ -10,10 +10,7 @@ interface FilterSliceState {
     searchValue: string,
     activeCategory: number,
     currentPage: number,
-    sort: {
-        name: 'популярности',
-        sortProperty: 'rating',
-    }
+    sort: Sort,
 }
 
 const initialState = {
