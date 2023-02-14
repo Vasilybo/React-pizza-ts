@@ -16,7 +16,7 @@ interface CartSliceState {
 
 const initialState = {
     totalPrice: 0,
-    items: [],
+    items: CartItem[],
 }
 
 const cartSlice = createSlice({
