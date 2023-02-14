@@ -1,5 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+type CartItem = {
+    id: string,
+    name: string,
+    price: number,
+    imageUrl: string
+    size: number,
+    type: number,
+}
+
 interface CartSliceState {
     totalPrice: number,
     items:
