@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import {createSlice, createAsyncThunk, PayloadAction} from '@reduxjs/toolkit'
 import axios from "axios";
 import {RootState} from "../store";
 
@@ -35,7 +35,7 @@ const pizzasSlice = createSlice({
     name: 'pizzas',
     initialState,
     reducers: {
-        setPizzas(state, action) {
+        setPizzas(state, action: PayloadAction<PizzaItems[]>) {
             state.items = action.payload
         }
     },
@@ -44,7 +44,7 @@ const pizzasSlice = createSlice({
                     state.status = 'loading'
                     state.items = []
                 })
-        builder.addCase(fetchPizzas.fulfilled, (state) => {
+        builder.addCase(fetchPizzas.fulfilled, (state, action) => {
             state.items = action.payload
             state.status = 'success'
         })
