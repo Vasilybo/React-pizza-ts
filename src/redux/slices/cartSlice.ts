@@ -11,12 +11,12 @@ type CartItem = {
 
 interface CartSliceState {
     totalPrice: number,
-    items:
+    items: CartItem[]
 }
 
 const initialState = {
     totalPrice: 0,
-    items: CartItem[],
+    items: [],
 }
 
 const cartSlice = createSlice({
