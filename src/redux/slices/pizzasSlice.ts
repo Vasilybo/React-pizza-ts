@@ -34,7 +34,7 @@ interface PizzasSliceState {
 
 const initialState: PizzasSliceState = {
     items: [],
-    status: 'loading', // loading | success | error
+    status: Status.LOADING, // loading | success | error
 }
 
 const pizzasSlice = createSlice({
