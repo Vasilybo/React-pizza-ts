@@ -26,7 +26,7 @@ interface PizzasSliceState {
     status: 'loading' | 'success' | 'error';
 }
 
-const initialState = {
+const initialState: PizzasSliceState = {
     items: [],
     status: 'loading', // loading | success | error
 }
