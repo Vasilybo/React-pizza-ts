@@ -7,6 +7,7 @@ type CartItem = {
     imageUrl: string
     size: number,
     type: number,
+    count: number
 }
 
 interface CartSliceState {
