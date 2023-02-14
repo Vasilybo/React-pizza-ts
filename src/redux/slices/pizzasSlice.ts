@@ -21,9 +21,15 @@ type PizzaItems = {
     types: number[],
 }
 
+enum Status {
+    LOADING = 'loading',
+    SUCCESS = 'success',
+    ERROR = 'error',
+}
+
 interface PizzasSliceState {
     items: PizzaItems[]
-    status: 'loading' | 'success' | 'error';
+    status: Status;
 }
 
 const initialState: PizzasSliceState = {
