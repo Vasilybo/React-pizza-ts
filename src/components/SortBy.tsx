@@ -7,6 +7,10 @@ type List = {
     sortProperty: string
 }
 
+type PopupClick = React.MouseEvent<HTMLBodyElement> & {
+    path: Node[]
+}
+
 const list: List[] = [
     {name: 'популярности', sortProperty: 'rating'},
     {name: 'цене', sortProperty: 'price'},
