@@ -42,7 +42,7 @@ const cartSlice = createSlice({
                 }, 0)
         },
 
-        decrementProduct (state, action) {
+        decrementProduct (state, action: PayloadAction<string>) {
             const findProduct = state.items.find((obj) => obj.id === action.payload)
 
             if (findProduct) {
