@@ -30,7 +30,7 @@ function SortBy() {
 
     useEffect(() => {
         const handleClickOutside = (event: PopupClick) => {
-            if(!event.path.includes(sortRef.current)) {
+            if(sortRef.current && !event.path.includes(sortRef.current)) {
                 setIsVisible(false)
             }
         }
