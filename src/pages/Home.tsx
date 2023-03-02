@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import {useSelector, useDispatch} from "react-redux";
+import {useSelector} from "react-redux";
 
 import Categories from "../components/Categories";
 import SortBy from "../components/SortBy";
@@ -9,13 +9,14 @@ import Pagination from "../components/Pagination";
 import {filterSelector, setActiveCategory, setCurrentPage} from "../redux/slices/filterSlice";
 import {fetchPizzas, pizzasSelector} from "../redux/slices/pizzasSlice";
 import {Link} from "react-router-dom";
+import {useAppDispatch} from "../redux/store";
 
 const Home = () => {
 
     const {activeCategory, sort, currentPage, searchValue} = useSelector(filterSelector)
     const {items, status} = useSelector(pizzasSelector)
     const selectedSort = sort.sortProperty
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
 
     const search = searchValue ? `&search=${searchValue}` : ''
 
@@ -29,11 +30,12 @@ const Home = () => {
 
     const getPizzas = async () => {
         dispatch(
-            // @ts-ignore
             fetchPizzas({
             currentPage,
             activeCategory,
+                // @ts-ignore
             selectedSort,
+                // @ts-ignore
             search,
         }))
         window.scrollTo(0, 0)
