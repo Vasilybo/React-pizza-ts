@@ -12,12 +12,13 @@ const  Search = () => {
     const [value, setValue] = useState()
     const inputRef = useRef()
 
+
     const onClickClear = () => {
         dispatch(setSearchValue(value));
         setValue('')
-        inputRef.current.focus()
+        inputRef.current?.focus()
     }
-
+    // eslint-disable-next-line
     const updateSearchValue = useCallback(
         debounce((string) => {
             dispatch(setSearchValue(string))

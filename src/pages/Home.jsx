@@ -1,4 +1,4 @@
-import React, {useEffect, useContext} from 'react';
+import React, {useEffect} from 'react';
 import {useSelector, useDispatch} from "react-redux";
 
 import Categories from "../components/Categories";
@@ -8,7 +8,6 @@ import PizzaBlock from "../components/PizzaBlock";
 import Pagination from "../components/Pagination";
 import {filterSelector, setActiveCategory, setCurrentPage} from "../redux/slices/filterSlice";
 import {fetchPizzas, pizzasSelector} from "../redux/slices/pizzasSlice";
-import {Link} from "react-router-dom";
 
 const Home = () => {
 
@@ -39,12 +38,14 @@ const Home = () => {
 
     useEffect(() => {
         getPizzas()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [activeCategory, selectedSort, search, currentPage])
 
     const pizzas = items.map((obj) => (
-        <Link to={`/pizza/${obj.id}`}
-              key={obj + obj.name}>
+        // <Link to={`/pizza/${obj.id}`}
+        //       key={obj + obj.name}>
             <PizzaBlock
+                key={obj + obj.name}
                 name={obj.name}
                 price={obj.price}
                 imageUrl={obj.imageUrl}
@@ -52,7 +53,7 @@ const Home = () => {
                 sizes={obj.sizes}
                 types={obj.types}
             />
-        </Link>
+        // </Link>
     ))
 
     const skeleton = [...new Array(6)].map((_, index) => <SkeletonLoader key={index}/>)
@@ -63,7 +64,7 @@ const Home = () => {
                 <Categories
                     value={activeCategory}
                     onClickCategory={onClickCategory}/>
-                <SortBy/>
+                <SortBy />
             </div>
             <h2 className="content__title">Все пиццы</h2>
             {

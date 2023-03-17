@@ -22,12 +22,11 @@ function SortBy() {
 
     useEffect(() => {
         const handleClickOutside = (event) => {
-            if(!event.path.includes(sortRef.current)) {
+            if(!sortRef.current?.contains(event.target)) {
                 setIsVisible(false)
             }
         }
         document.body.addEventListener('click', handleClickOutside)
-
         return () => {
             document.body.removeEventListener('click', handleClickOutside)
         }
@@ -61,7 +60,7 @@ function SortBy() {
                         list.map((obj, index) => (
                             <li
                                 key={obj + index}
-                                className={sort.sortProperty === obj.sort ? 'active' : ''}
+                                className={sort.sortProperty === obj.sortProperty ? 'active' : ''}
                                 onClick={() => onClickSortName(obj)}
                             >{obj.name}
                             </li>

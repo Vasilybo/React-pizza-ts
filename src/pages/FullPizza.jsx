@@ -25,7 +25,8 @@ const FullPizza = () => {
 
     return (
         <div className="container">
-            <img src={pizza.imageUrl}/>
+            {/*eslint-disable-next-line*/}
+            <img src={pizza.imageUrl} />
             <h2>{pizza.name}</h2>
             <h4>{pizza.price} ₽</h4>
         </div>
