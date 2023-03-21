@@ -24,21 +24,21 @@ const pizzasSlice = createSlice({
             state.items = action.payload
         }
     },
-    extraReducers: {
-        [fetchPizzas.pending]: (state) => {
-            state.status = 'loading'
+    extraReducers: (builder) => {
+        builder.addCase(fetchPizzas.pending, (state) => {
+            state.status = 'LOADING'
             state.items = []
-        },
-        [fetchPizzas.fulfilled]: (state, action) => {
+        })
+        builder.addCase(fetchPizzas.fulfilled, (state, action) => {
             state.items = action.payload
-            state.status = 'success'
-        },
-        [fetchPizzas.rejected]: (state) => {
-            state.status = 'error'
+            state.status = 'SUCCESS'
+        })
+        builder.addCase(fetchPizzas.rejected, (state) => {
+            state.status = 'ERROR'
             state.items = []
-        },
-        },
-    })
+        })
+    },
+})
 
 export const pizzasSelector = (state) => state.pizzas
 
