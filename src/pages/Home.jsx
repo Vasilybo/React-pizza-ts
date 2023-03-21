@@ -74,7 +74,7 @@ const Home = () => {
                         <p>К сожалению, не удалось получить пиццы. Попробуйте повторить попытку позже. </p>
                     </div>)
                     : (<div className="content__items">
-                        {status === 'loading'
+                        {status === 'LOADING'
                             ? skeleton
                             : pizzas}
                     </div>)
